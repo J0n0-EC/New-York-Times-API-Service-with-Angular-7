@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <span>Welcome to the New York Times</span>  
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="appMenu"><mat-icon>settings</mat-icon></button>
+</mat-toolbar>
+
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item> Settings </button>
+  <button mat-menu-item> Help </button>
+</mat-menu>
+
+<mat-sidenav-container class="example-container">
+
+  <mat-card class="example-card"  *ngFor="let article of mMovies">
+    <mat-card-header>
+      <mat-card-title class="title">{{movies.title}}</mat-card-title>
+      <mat-card-subtitle>{{movies.source.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="img-article" src={{movies.urlToImage}} alt="">
+    <mat-card-content>
+      <p>
+        {{ data.movies }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card"  *ngFor="let article of mArticles">
+    <mat-card-header>
+      <mat-card-title class="title">{{articles.title}}</mat-card-title>
+      <mat-card-subtitle>{{articles.source.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
+    <mat-card-content>
+      <p>
+        {{ data.articles }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card"  *ngFor="let article of mTopstories">
+    <mat-card-header>
+      <mat-card-title class="title">{{stories.title}}</mat-card-title>
+      <mat-card-subtitle>{{stories.source.name}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="img-article" src={{stories.urlToImage}} alt="">
+    <mat-card-content>
+      <p>
+        {{ data.stories }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</mat-sidenav-container>
+
+<router-outlet></router-outlet>
